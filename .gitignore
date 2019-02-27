@@ -1,0 +1,6 @@
+.vs/*
+packages/*
+ExploreMars/bin/*
+ExploreMars/obj/*
+ExploreMars.Tests/bin/*
+ExploreMars.Tests/obj/*
