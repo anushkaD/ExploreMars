@@ -2,7 +2,7 @@
 
 namespace ExploreMars
 {
-    public abstract class Rower
+    public abstract class Rover
     {
         public int X { get; protected set; }
         public int Y { get; protected set; }
@@ -10,7 +10,7 @@ namespace ExploreMars
         public string Position { get { return String.Format("{0} {1} {2}", X, Y, Direction); } }
 
         public abstract void MoveOneGridPoint();
-        public abstract Rower TurnRight();
-        public abstract Rower TurnLeft();
+        public abstract Rover TurnRight();
+        public abstract Rover TurnLeft();
     }
 }

@@ -4,7 +4,7 @@ using System;
 namespace ExploreMars.Tests
 {
     [TestFixture]
-    public class RowerTests
+    public class RoverTests
     {
         private Grid grid;
         [SetUp]

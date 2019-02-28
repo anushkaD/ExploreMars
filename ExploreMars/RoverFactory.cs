@@ -2,20 +2,20 @@
 
 namespace ExploreMars
 {
-    public static class RowerFactory
+    public static class RoverFactory
     {
-        public static Rower Create(char direction, int x, int y)
+        public static Rover Create(char direction, int x, int y)
         {
             switch (direction)
             {
                 case 'S':
-                    return new SouthFacingRower(x, y);
+                    return new SouthFacingRover(x, y);
                 case 'E':
-                    return new EastFacingRower(x, y);
+                    return new EastFacingRover(x, y);
                 case 'W':
-                    return new WestFacingRower(x, y);
+                    return new WestFacingRover(x, y);
                 case 'N':
-                    return new NorthFacingRower(x, y);
+                    return new NorthFacingRover(x, y);
                 default:
                     throw new InvalidOperationException();
             }

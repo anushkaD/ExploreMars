@@ -7,7 +7,7 @@ namespace ExploreMars
     {
         public int Width { get; private set; }
         public int Height { get; private set; }
-        public Rower ActiveRower
+        public Rover ActiveRover
         {
             get;
             private set;
@@ -34,7 +34,7 @@ namespace ExploreMars
             {
                 case InstructionType.Move:
                     MoveActiveRower(instructions.NavigationInstrunctions);
-                    return ActiveRower.Position;
+                    return ActiveRover.Position;
 
                 case InstructionType.GridSize:
                     SetGridSize(instructions);
@@ -42,7 +42,7 @@ namespace ExploreMars
 
                 case InstructionType.RowerLanding:
                     SetActiveRower(instructions);
-                    return ActiveRower.Position;
+                    return ActiveRover.Position;
 
                 default:
                     return string.Empty;
@@ -57,7 +57,7 @@ namespace ExploreMars
 
         private void SetActiveRower(Instructions instructions)
         {
-            ActiveRower = RowerFactory.Create(instructions.Direction,
+            ActiveRover = RoverFactory.Create(instructions.Direction,
                                 instructions.X,
                                 instructions.Y);
         }
@@ -76,13 +76,13 @@ namespace ExploreMars
             switch ((NavigationInstructions)instruction)
             {
                 case NavigationInstructions.TurnLeft:
-                    ActiveRower = ActiveRower.TurnLeft();
+                    ActiveRover = ActiveRover.TurnLeft();
                     break;
                 case NavigationInstructions.TurnRight:
-                    ActiveRower = ActiveRower.TurnRight();
+                    ActiveRover = ActiveRover.TurnRight();
                     break;
                 case NavigationInstructions.MoveOneGridPoint:
-                    ActiveRower.MoveOneGridPoint();
+                    ActiveRover.MoveOneGridPoint();
                     break;
             }
         }

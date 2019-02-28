@@ -41,17 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EastFacingRower.cs" />
+    <Compile Include="EastFacingRover.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Instructions.cs" />
     <Compile Include="InstructionType.cs" />
     <Compile Include="NavigationInstructions.cs" />
-    <Compile Include="NorthFacingRower.cs" />
+    <Compile Include="NorthFacingRover.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rower.cs" />
-    <Compile Include="RowerFactory.cs" />
-    <Compile Include="SouthFacingRower.cs" />
-    <Compile Include="WestFacingRower.cs" />
+    <Compile Include="Rover.cs" />
+    <Compile Include="RoverFactory.cs" />
+    <Compile Include="SouthFacingRover.cs" />
+    <Compile Include="WestFacingRover.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
