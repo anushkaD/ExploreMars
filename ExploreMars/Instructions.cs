@@ -1,16 +1,34 @@
-﻿namespace ExploreMars
-{
+﻿using System;
+
+namespace ExploreMars
+{  
+
     public class Instructions
     {
-        public int X { get; private set; }
-        public int Y { get; private set; }
-        public int Width { get; private set; }
-        public int Height { get; private set; }
-        public char Direction { get; private set; }
-        public char[] NavigationInstrunctions { get; private set; }
-        public InstructionType Type { get; private set; }
+        private int X { get; set; }
+        private int Y { get; set; }
+        private int Width { get; set; }
+        private int Height { get; set; }
+        private char Direction { get; set; }
+        private char[] NavigationInstrunctions { get; set; }
+        private InstructionType Type { get; set; }
+        public Grid ExploreArea { get; private set; }
 
-        public Instructions(string input)
+        public string Process(string input)
+        {
+            try
+            {
+                ConvertToInstructions(input);
+                return ExecuteInstructions();
+            }
+            catch
+            {
+                throw new InvalidOperationException("Invalid Input");
+            }
+
+        }
+
+        private void ConvertToInstructions(string input)
         {
             var instructions = input.Split(' ');
             SetInstructionProperties(instructions);
@@ -53,5 +71,30 @@
         {
             return instructions.Length == 2;
         }
+
+        private string ExecuteInstructions()
+        {
+            switch (Type)
+            {
+                case InstructionType.GridSize:
+                    ExploreArea = new Grid(Width, Height);
+                    return string.Empty;                         
+
+                case InstructionType.RowerLanding:
+                    return ExploreArea.LandRover(Direction, X, Y);
+
+                case InstructionType.Move:
+                    return ExploreArea.MoveActiveRower(NavigationInstrunctions);
+            }
+
+            throw new InvalidOperationException();
+        }
+    }
+
+    enum InstructionType
+    {
+        Move,
+        GridSize,
+        RowerLanding,
     }
 }

@@ -7,67 +7,32 @@ namespace ExploreMars
     {
         public int Width { get; private set; }
         public int Height { get; private set; }
-        public Rover ActiveRover
+        private Rover ActiveRover
         {
             get;
-            private set;
+            set;
         }
 
-        public string Input(string input)
+        public Grid(int width,int height)
         {
-            try
-            {
-                var instructions = new Instructions(input);
-                return ExecuteInstructions(instructions);
-            }
-            catch
-            {
-                throw new InvalidOperationException("Invalid Input");
-            }
-
-
+            Width = width;
+            Height = height;
         }
 
-        private string ExecuteInstructions(Instructions instructions)
+        public string LandRover(char direction,int x,int y)
         {
-            switch (instructions.Type)
-            {
-                case InstructionType.Move:
-                    MoveActiveRower(instructions.NavigationInstrunctions);
-                    return ActiveRover.Position;
-
-                case InstructionType.GridSize:
-                    SetGridSize(instructions);
-                    return string.Empty;
-
-                case InstructionType.RowerLanding:
-                    SetActiveRower(instructions);
-                    return ActiveRover.Position;
-
-                default:
-                    return string.Empty;
-            }
+            ActiveRover = RoverFactory.Create(direction,  x, y);
+            return ActiveRover.Position;
         }
 
-        private void SetGridSize(Instructions instructions)
-        {
-            Width = instructions.Width;
-            Height = instructions.Height;
-        }
-
-        private void SetActiveRower(Instructions instructions)
-        {
-            ActiveRover = RoverFactory.Create(instructions.Direction,
-                                instructions.X,
-                                instructions.Y);
-        }
-
-        private void MoveActiveRower(char[] instructions)
+        public string MoveActiveRower(char[] instructions)
         {
             for (int i = 0; i < instructions.Length; i++)
             {
                 ActiveRover = ActiveRover.Navigate(instructions[i]);
             }
+
+            return ActiveRover.Position;
         }
 
     }

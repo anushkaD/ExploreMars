@@ -6,11 +6,11 @@ namespace ExploreMars.Tests
     [TestFixture]
     public class RoverTests
     {
-        private Grid grid;
+        private Instructions instructions;
         [SetUp]
         public void SetUp()
         {
-            grid = new Grid();
+            instructions = new Instructions();
         }
 
         [Test]
@@ -18,10 +18,10 @@ namespace ExploreMars.Tests
         {
             var input = "5 5";
 
-            grid.Input(input);
+            instructions.Process(input);
 
-            Assert.That(grid.Width, Is.EqualTo(5));
-            Assert.That(grid.Height, Is.EqualTo(5));
+            Assert.That(instructions.ExploreArea.Width, Is.EqualTo(5));
+            Assert.That(instructions.ExploreArea.Height, Is.EqualTo(5));
         }
 
         [Test]
@@ -29,9 +29,9 @@ namespace ExploreMars.Tests
         {
             var inputOne = "5 5";
             var inputTwo = "1 2 N";
-            grid.Input(inputOne);
+            instructions.Process(inputOne);
 
-            var position = grid.Input(inputTwo);
+            var position = instructions.Process(inputTwo);
 
             Assert.That(position, Is.EqualTo(inputTwo));
         }
@@ -43,10 +43,10 @@ namespace ExploreMars.Tests
             var inputTwo = "1 2 N";
             var inputThree = "LMLMLMLMM";
             var expectedCordinates = "1 3 N";
-            grid.Input(inputOne);
-            grid.Input(inputTwo);
+            instructions.Process(inputOne);
+            instructions.Process(inputTwo);
 
-            var position = grid.Input(inputThree);
+            var position = instructions.Process(inputThree);
 
             Assert.That(position, Is.EqualTo(expectedCordinates));
         }
@@ -59,11 +59,11 @@ namespace ExploreMars.Tests
             var inputThree = "LMLMLMLMM";
             var inputFour = "3 3 E";
             var expectedCordinates = "3 3 E";
-            grid.Input(inputOne);
-            grid.Input(inputTwo);
-            grid.Input(inputThree);
+            instructions.Process(inputOne);
+            instructions.Process(inputTwo);
+            instructions.Process(inputThree);
 
-            var position = grid.Input(inputFour);
+            var position = instructions.Process(inputFour);
 
             Assert.That(position, Is.EqualTo(expectedCordinates));
         }
@@ -77,12 +77,12 @@ namespace ExploreMars.Tests
             var inputFour = "3 3 E";
             var inputFive = "MMRMMRMRRM";
             var expectedCordinates = "5 1 E";
-            grid.Input(inputOne);
-            grid.Input(inputTwo);
-            grid.Input(inputThree);
-            grid.Input(inputFour);
+            instructions.Process(inputOne);
+            instructions.Process(inputTwo);
+            instructions.Process(inputThree);
+            instructions.Process(inputFour);
 
-            var position = grid.Input(inputFive);
+            var position = instructions.Process(inputFive);
 
             Assert.That(position, Is.EqualTo(expectedCordinates));
         }
@@ -93,7 +93,7 @@ namespace ExploreMars.Tests
         [TestCase("1")]
         public void should_throw_an_error_when_the_size_input_is_invalid(string input)
         {
-            Assert.Throws<InvalidOperationException>(() => grid.Input(input), "Invalid Input");
+            Assert.Throws<InvalidOperationException>(() => instructions.Process(input), "Invalid Input");
         }
 
         [TestCase("A 1 N")]
@@ -101,9 +101,9 @@ namespace ExploreMars.Tests
         [TestCase("4 B S")]
         public void should_not_land_the_rower_when_landing_input_is_invalid(string input)
         {
-            grid.Input("4 4");
+            instructions.Process("4 4");
 
-            Assert.Throws<InvalidOperationException>(() => grid.Input(input), "Invalid Input");
+            Assert.Throws<InvalidOperationException>(() => instructions.Process(input), "Invalid Input");
         }
     }
 }
