@@ -66,24 +66,7 @@ namespace ExploreMars
         {
             for (int i = 0; i < instructions.Length; i++)
             {
-                Navigate(instructions[i]);
-
-            }
-        }
-
-        private void Navigate(char instruction)
-        {
-            switch ((NavigationInstructions)instruction)
-            {
-                case NavigationInstructions.TurnLeft:
-                    ActiveRover = ActiveRover.TurnLeft();
-                    break;
-                case NavigationInstructions.TurnRight:
-                    ActiveRover = ActiveRover.TurnRight();
-                    break;
-                case NavigationInstructions.MoveOneGridPoint:
-                    ActiveRover.MoveOneGridPoint();
-                    break;
+                ActiveRover = ActiveRover.Navigate(instructions[i]);
             }
         }
 

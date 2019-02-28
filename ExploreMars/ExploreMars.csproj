@@ -41,17 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EastFacingRover.cs" />
+    <Compile Include="Rower\Navigation\INavigationStrategy.cs" />
+    <Compile Include="Rower\Navigation\MoveOneGridPointStrategy.cs" />
+    <Compile Include="Rower\Navigation\NavigationStrategyFactory.cs" />
+    <Compile Include="Rower\EastFacingRover.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Instructions.cs" />
     <Compile Include="InstructionType.cs" />
-    <Compile Include="NavigationInstructions.cs" />
-    <Compile Include="NorthFacingRover.cs" />
+    <Compile Include="Rower\Navigation\NavigationInstructions.cs" />
+    <Compile Include="Rower\NorthFacingRover.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rover.cs" />
-    <Compile Include="RoverFactory.cs" />
-    <Compile Include="SouthFacingRover.cs" />
-    <Compile Include="WestFacingRover.cs" />
+    <Compile Include="Rower\Rover.cs" />
+    <Compile Include="Rower\RoverFactory.cs" />
+    <Compile Include="Rower\SouthFacingRover.cs" />
+    <Compile Include="Rower\WestFacingRover.cs" />
+    <Compile Include="Rower\Navigation\TurnLeftStrategy.cs" />
+    <Compile Include="Rower\Navigation\TurnRightStrategy.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

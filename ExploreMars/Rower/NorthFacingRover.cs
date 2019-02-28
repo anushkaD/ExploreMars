@@ -3,18 +3,19 @@
     public class NorthFacingRover : Rover
     {
         public NorthFacingRover(int x, int y)
-            :base(x,y,"N")
+            : base(x, y, "N")
         {
         }
 
-        public override void MoveOneGridPoint()
+        public override Rover MoveOneGridPoint()
         {
-           Y += 1;
+            Y += 1;
+            return this;
         }
 
         public override Rover TurnLeft()
         {
-            return new WestFacingRover(X,Y); 
+            return new WestFacingRover(X, Y);
         }
 
         public override Rover TurnRight()

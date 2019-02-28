@@ -7,9 +7,10 @@
         {
         }
 
-        public override void MoveOneGridPoint()
+        public override Rover MoveOneGridPoint()
         {
             X -= 1;
+            return this;
         }
 
         public override Rover TurnLeft()

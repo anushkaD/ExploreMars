@@ -15,8 +15,14 @@ namespace ExploreMars
         public string Direction { get; private set; }
         public string Position { get { return String.Format("{0} {1} {2}", X, Y, Direction); } }
 
-        public abstract void MoveOneGridPoint();
+        public abstract Rover MoveOneGridPoint();
         public abstract Rover TurnRight();
         public abstract Rover TurnLeft();
+
+        public Rover Navigate(char instruction)
+        {
+            var navigationStrategy = new NavigationStrategyFactory(instruction).Create();
+            return navigationStrategy.Execute(this);
+        }
     }
 }
