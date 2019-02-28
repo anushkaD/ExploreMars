@@ -25,7 +25,7 @@ namespace ExploreMars.Tests
         }
 
         [Test]
-        public void second_input_should_be_the_starting_cordinates_of_the_rower()
+        public void second_input_should_be_the_starting_cordinates_of_the_rover()
         {
             var inputOne = "5 5";
             var inputTwo = "1 2 N";
@@ -37,7 +37,7 @@ namespace ExploreMars.Tests
         }
 
         [Test]
-        public void after_the_third_input_should_return_the_new_position_of_the_rower()
+        public void after_the_third_input_should_return_the_new_position_of_the_rover()
         {
             var inputOne = "5 5";
             var inputTwo = "1 2 N";
@@ -52,7 +52,7 @@ namespace ExploreMars.Tests
         }
 
         [Test]
-        public void forth_input_should_be_the_starting_coordinates_of_a_new_rower()
+        public void forth_input_should_be_the_starting_coordinates_of_a_new_rover()
         {
             var inputOne = "5 5";
             var inputTwo = "1 2 N";
@@ -69,7 +69,7 @@ namespace ExploreMars.Tests
         }
 
         [Test]
-        public void after_the_fifth_input_should_return_the_new_position_of_the_rower()
+        public void after_the_fifth_input_should_return_the_new_position_of_the_rover()
         {
             var inputOne = "5 5";
             var inputTwo = "1 2 N";
@@ -99,7 +99,7 @@ namespace ExploreMars.Tests
         [TestCase("A 1 N")]
         [TestCase("1 1 R")]
         [TestCase("4 B S")]
-        public void should_not_land_the_rower_when_landing_input_is_invalid(string input)
+        public void should_not_land_the_rover_when_landing_input_is_invalid(string input)
         {
             instructions.Process("4 4");
 

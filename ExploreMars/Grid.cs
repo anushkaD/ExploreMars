@@ -25,7 +25,7 @@ namespace ExploreMars
             return ActiveRover.Position;
         }
 
-        public string MoveActiveRower(char[] instructions)
+        public string Explore(char[] instructions)
         {
             for (int i = 0; i < instructions.Length; i++)
             {

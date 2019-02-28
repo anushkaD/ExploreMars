@@ -38,7 +38,7 @@ namespace ExploreMars
         {
             if (IsMovingInstructions(instructions))
             {
-                Type = InstructionType.Move;
+                Type = InstructionType.Explore;
                 NavigationInstrunctions = instructions[0].ToCharArray();
 
             }
@@ -48,9 +48,9 @@ namespace ExploreMars
                 Width = int.Parse(instructions[0]);
                 Height = int.Parse(instructions[1]);
             }
-            else if (IsRowerLanding(instructions))
+            else if (IsRoverLanding(instructions))
             {
-                Type = InstructionType.RowerLanding;
+                Type = InstructionType.RoverLanding;
                 X = int.Parse(instructions[0]);
                 Y = int.Parse(instructions[1]);
                 Direction = char.Parse(instructions[2]);
@@ -62,7 +62,7 @@ namespace ExploreMars
             return instructions.Length == 1;
         }
 
-        private bool IsRowerLanding(string[] instructions)
+        private bool IsRoverLanding(string[] instructions)
         {
             return instructions.Length == 3;
         }
@@ -80,11 +80,11 @@ namespace ExploreMars
                     ExploreArea = new Grid(Width, Height);
                     return string.Empty;                         
 
-                case InstructionType.RowerLanding:
+                case InstructionType.RoverLanding:
                     return ExploreArea.LandRover(Direction, X, Y);
 
-                case InstructionType.Move:
-                    return ExploreArea.MoveActiveRower(NavigationInstrunctions);
+                case InstructionType.Explore:
+                    return ExploreArea.Explore(NavigationInstrunctions);
             }
 
             throw new InvalidOperationException();
@@ -93,8 +93,8 @@ namespace ExploreMars
 
     enum InstructionType
     {
-        Move,
+        Explore,
         GridSize,
-        RowerLanding,
+        RoverLanding,
     }
 }

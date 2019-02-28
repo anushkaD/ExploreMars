@@ -2,6 +2,6 @@
 {
     public interface INavigationStrategy
     {
-        Rover Execute(Rover currentRower);
+        Rover Execute(Rover rover);
     }
 }

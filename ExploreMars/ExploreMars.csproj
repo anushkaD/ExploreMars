@@ -47,7 +47,6 @@
     <Compile Include="Rower\EastFacingRover.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Instructions.cs" />
-    <Compile Include="InstructionType.cs" />
     <Compile Include="Rower\Navigation\NavigationInstructions.cs" />
     <Compile Include="Rower\NorthFacingRover.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
