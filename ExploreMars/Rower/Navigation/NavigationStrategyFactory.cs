@@ -9,7 +9,7 @@ namespace ExploreMars
             Instruction = instruction;
         }
 
-        public char Instruction { get; }
+        private char Instruction { get; }
 
         public INavigationStrategy Create()
         {
@@ -22,7 +22,7 @@ namespace ExploreMars
                 case NavigationInstructions.MoveOneGridPoint:
                     return new MoveOneGridPointStrategy();
             }
-            throw new InvalidOperationException();
+            throw new ArgumentException();
         }
     }
 }

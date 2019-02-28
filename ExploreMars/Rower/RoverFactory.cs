@@ -17,7 +17,7 @@ namespace ExploreMars
                 case 'N':
                     return new NorthFacingRover(x, y);
                 default:
-                    throw new InvalidOperationException();
+                    throw new ArgumentException();
             }
         }
     }

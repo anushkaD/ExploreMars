@@ -23,7 +23,7 @@ namespace ExploreMars
             }
             catch
             {
-                throw new InvalidOperationException("Invalid Input");
+                throw new ArgumentException("Invalid Input");
             }
 
         }

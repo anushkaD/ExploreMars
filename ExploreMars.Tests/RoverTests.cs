@@ -93,7 +93,7 @@ namespace ExploreMars.Tests
         [TestCase("1")]
         public void should_throw_an_error_when_the_size_input_is_invalid(string input)
         {
-            Assert.Throws<InvalidOperationException>(() => instructions.Process(input), "Invalid Input");
+            Assert.Throws<ArgumentException>(() => instructions.Process(input), "Invalid Input");
         }
 
         [TestCase("A 1 N")]
@@ -103,7 +103,7 @@ namespace ExploreMars.Tests
         {
             instructions.Process("4 4");
 
-            Assert.Throws<InvalidOperationException>(() => instructions.Process(input), "Invalid Input");
+            Assert.Throws<ArgumentException>(() => instructions.Process(input), "Invalid Input");
         }
     }
 }
