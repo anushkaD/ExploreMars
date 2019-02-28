@@ -3,10 +3,8 @@
     public class WestFacingRover : Rover
     {
         public WestFacingRover(int x, int y)
+            : base(x, y, "W")
         {
-            X = x;
-            Y = y;
-            Direction = "W";
         }
 
         public override void MoveOneGridPoint()
