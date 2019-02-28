@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ExploreMars
+﻿namespace ExploreMars
 {
 
     public class Grid
