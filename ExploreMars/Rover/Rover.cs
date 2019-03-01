@@ -2,6 +2,13 @@
 
 namespace ExploreMars
 {
+    enum NavigationInstructions
+    {
+        TurnRight = 'R',
+        TurnLeft = 'L',
+        MoveOneGridPoint = 'M'
+    }
+
     public abstract class Rover
     {
         public Rover(int x, int y, string direction)
@@ -15,14 +22,27 @@ namespace ExploreMars
         public string Direction { get; private set; }
         public string Position { get { return String.Format("{0} {1} {2}", X, Y, Direction); } }
 
-        public abstract Rover MoveOneGridPoint();
-        public abstract Rover TurnRight();
-        public abstract Rover TurnLeft();
+        protected abstract Rover MoveOneGridPoint();
+        protected abstract Rover TurnRight();
+        protected abstract Rover TurnLeft();
 
         public Rover Navigate(char instruction)
         {
-            var navigationStrategy = new NavigationStrategyFactory(instruction).Create();
-            return navigationStrategy.Execute(this);
+            return ExecuteNavigationInstruction(instruction);
+        }
+
+        private Rover ExecuteNavigationInstruction(char instruction)
+        {
+            switch ((NavigationInstructions)instruction)
+            {
+                case NavigationInstructions.TurnLeft:
+                    return TurnLeft();
+                case NavigationInstructions.TurnRight:
+                    return TurnRight();
+                case NavigationInstructions.MoveOneGridPoint:
+                    return MoveOneGridPoint();
+            }
+            throw new ArgumentException();
         }
     }
 }

@@ -8,18 +8,18 @@
           
         }
 
-        public override Rover MoveOneGridPoint()
+        protected override Rover MoveOneGridPoint()
         {
             X += 1;
             return this;
         }
 
-        public override Rover TurnLeft()
+        protected override Rover TurnLeft()
         {
             return new NorthFacingRover(X, Y);
         }
 
-        public override Rover TurnRight()
+        protected override Rover TurnRight()
         {
             return new SouthFacingRover(X, Y);
         }

@@ -41,21 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Rover\Navigation\INavigationStrategy.cs" />
-    <Compile Include="Rover\Navigation\MoveOneGridPointStrategy.cs" />
-    <Compile Include="Rover\Navigation\NavigationStrategyFactory.cs" />
     <Compile Include="Rover\EastFacingRover.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Instructions.cs" />
-    <Compile Include="Rover\Navigation\NavigationInstructions.cs" />
     <Compile Include="Rover\NorthFacingRover.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rover\Rover.cs" />
     <Compile Include="Rover\RoverFactory.cs" />
     <Compile Include="Rover\SouthFacingRover.cs" />
     <Compile Include="Rover\WestFacingRover.cs" />
-    <Compile Include="Rover\Navigation\TurnLeftStrategy.cs" />
-    <Compile Include="Rover\Navigation\TurnRightStrategy.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
