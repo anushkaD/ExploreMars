@@ -20,7 +20,7 @@ namespace ExploreMars
         public int X { get; protected set; }
         public int Y { get; protected set; }
         public string Direction { get; private set; }
-        public string Position { get { return String.Format("{0} {1} {2}", X, Y, Direction); } }
+        public string Position { get { return string.Format("{0} {1} {2}", X, Y, Direction); } }
 
         protected abstract Rover MoveOneGridPoint();
         protected abstract Rover TurnRight();
